@@ -7,9 +7,14 @@
     --contact-gap: clamp(10px, 2vw, 32px);
 }
 
+* {
+    box-sizing: border-box;
+}
+
 html{
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 body{
     margin: 0;
@@ -17,17 +22,18 @@ body{
     width: 100%;
     font-family: DM Sans, Google Sans, sans-serif;
     background-color: rgb(84, 53, 30);
+    overflow-x: hidden;
 }
 button{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 12px 32px;
+    padding: clamp(8px, 2vw, 12px) clamp(20px, 4vw, 32px);
     background-color: transparent;
     border: 1px solid #F05A28;
     color: #FBEBD1;
     text-transform: uppercase;
-    font-size: .65rem;
+    font-size: clamp(10px, 2vw, 13px);
     letter-spacing: .18em;
     font-weight: 400;
     cursor: pointer;
@@ -43,7 +49,7 @@ h1{
     font-family: dm sans, google sans, sans-serif;
     letter-spacing: .18em;
     font-weight: 400;
-    font-size: 22px;
+    font-size: clamp(16px, 4vw, 22px);
     margin: 0;
 }
 h2{
@@ -52,7 +58,7 @@ h2{
     font-family: dm sans, google sans, sans-serif;
     letter-spacing: .18em;
     font-weight: 400;
-    font-size: 22px;
+    font-size: clamp(16px, 4vw, 22px);
     margin: 0;
 }
 h3{
@@ -61,7 +67,7 @@ h3{
     font-family: dm sans, google sans, sans-serif;
     letter-spacing: .18em;
     font-weight: 400;
-    font-size: 18px;
+    font-size: clamp(14px, 3vw, 18px);
     margin: 0;
 }
 p{
@@ -84,10 +90,13 @@ header{
     top: 0;
     z-index: 1000;
     margin-bottom: -84px;
+    background-color: rgba(84, 53, 30, 0.95);
+    backdrop-filter: blur(5px);
 }
 header .container{
-    width: 1440px;
-    padding: 0 48px;
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 clamp(16px, 5vw, 48px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -96,9 +105,10 @@ header .container{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
 #logo img{
-    height: 36px;
+    height: clamp(24px, 4vw, 36px);
     width: auto;
     padding: 0;
 }
@@ -107,25 +117,27 @@ header .container{
     justify-content: center;
     align-items: center;
 }
-nav{
+nav#nav-menu {
     display: flex;
     align-items: center;
-    gap: 50px;
-    font-size: 12px; 
+    gap: clamp(20px, 3vw, 50px);
+    font-size: clamp(10px, 2vw, 12px);
     letter-spacing: .18em;
 }
-ul{
+ul {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: clamp(15px, 3vw, 30px);
     list-style: none;
     padding: 0;
+    margin: 0;
 }
-nav a{
+nav#nav-menu a {
     position: relative;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
-nav a::after{
+nav#nav-menu a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -135,11 +147,92 @@ nav a::after{
     background-color: #F05A28;
     transition: width 0.3s ease;
 }
-nav a:hover{
+nav#nav-menu a:hover {
     color: #F05A28;
 }
-nav a:hover::after{
+nav#nav-menu a:hover::after {
     width: 100%;
+}
+
+/* Mobile menu toggle */
+#burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 8px;
+    z-index: 1001;
+}
+
+#burger span {
+    display: block;
+    width: 25px;
+    height: 2.5px;
+    background-color: #FBEBD1;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+#burger.active span:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+}
+
+#burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+#burger.active span:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    #burger {
+        display: flex;
+    }
+    
+    nav#nav-menu {
+        position: fixed;
+        top: 84px;
+        left: -100%;
+        flex-direction: column;
+        background-color: rgb(84, 53, 30);
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        gap: 0;
+        border-bottom: 1px solid rgba(240, 90, 40, 0.2);
+        z-index: 999;
+    }
+    
+    nav#nav-menu.active {
+        left: 0;
+    }
+    
+    ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        padding: 20px 0;
+    }
+    
+    ul li {
+        width: 100%;
+        border-bottom: 1px solid rgba(240, 90, 40, 0.1);
+    }
+    
+    ul li:last-child {
+        border-bottom: none;
+    }
+    
+    ul li a {
+        display: block;
+        padding: 16px 0;
+        font-size: 14px;
+    }
 }
 
 /* Hero */
@@ -150,19 +243,20 @@ nav a:hover::after{
     align-items: center;
     width: 100%;
     height: 100vh;
+    min-height: 400px;
     background-image: url(images/hero_interior-nVXbpgtLoFuGutAQoKcGFK.webp);
     background-size: cover;
     background-position: center;
-    /* position: absolute; */
 }
 .hero .container{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 0 clamp(16px, 5vw, 48px);
 }
 .hero img{
-    height: 166px;
+    height: clamp(80px, 15vw, 166px);
     width: auto;
 }
 
@@ -173,18 +267,19 @@ nav a:hover::after{
     justify-content: center;
     align-items: center;
     background-color: #54351e;
-    padding: 150px 0;
+    padding: clamp(50px, 10vw, 150px) clamp(16px, 5vw, 48px);
     flex-direction: column;
 }
 .about .container{
-    width: 800px;
+    max-width: 800px;
+    width: 100%;
     text-align: center;
     padding: 0;
 }
 .about p{
     color: #FBEBD1;
     font-family: "Cormorant Garamond", serif;
-    font-size: 24px;
+    font-size: clamp(16px, 4vw, 24px);
     font-weight: 300;
     line-height: 1.65;
     letter-spacing: 0.01em;
@@ -194,7 +289,7 @@ nav a:hover::after{
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 40px;
+    margin-top: clamp(20px, 5vw, 40px);
 }
 .line{
     display: block;
@@ -210,13 +305,14 @@ nav a:hover::after{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px 0;
+    padding: clamp(50px, 10vw, 100px) clamp(16px, 5vw, 48px);
     width: 100%;
 }
 .projects .container{
     display: flex;
     flex-direction: column;
-    width: 1440px;
+    max-width: 1440px;
+    width: 100%;
 }
 .projectcard{
     display: flex;
@@ -228,12 +324,13 @@ nav a:hover::after{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 630px;
+    aspect-ratio: 16/9;
     overflow: hidden;
 }
 .imgcontainer img{
     object-fit: cover;
-    width: 100%; 
+    width: 100%;
+    height: 100%;
 }
 .label{
     color: #F05A28;
@@ -241,47 +338,54 @@ nav a:hover::after{
     font-family: dm sans, google sans, sans-serif;
     letter-spacing: .18em;
     font-weight: 400;
+    font-size: clamp(12px, 2.5vw, 14px);
+    margin-top: clamp(10px, 3vw, 20px);
 }
 .location{
     font-family: "Cormorant Garamond", serif;
     font-weight: 400;
     line-height: 1.65;
     letter-spacing: 0.01em;
-    font-size: 18px;
+    font-size: clamp(14px, 3vw, 18px);
+    margin-bottom: clamp(20px, 5vw, 40px);
 }
+
 /* other projects */
 .otherprojects{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(12px, 3vw, 24px);
     width: 100%;
-    margin-bottom: 80px;
+    margin-bottom: clamp(40px, 8vw, 80px);
 }
 .otherprojects .projectcard{
     display: flex;
     flex-direction: column;
-    width: 49%;
-}
-.imgcontainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* width: 100%; */
-    /* height: 531px; */
-    overflow: hidden;
-    aspect-ratio: 4/3;
-}
-.imgcontainer img{
-    object-fit: cover;
-    height: 100%;
+    width: 100%;
 }
 .more{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+/* Tablet: 2 columns adjusted */
+@media (max-width: 1024px) {
+    .otherprojects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 768px) {
+    .otherprojects {
+        grid-template-columns: 1fr;
+    }
+    
+    .imgcontainer {
+        aspect-ratio: 4/3;
+    }
 }
 
 /* Services */
@@ -291,37 +395,39 @@ nav a:hover::after{
     justify-content: center;
     align-items: center;
     background-color: rgb(74, 46, 26);
-    padding: 100px 0;
+    padding: clamp(50px, 10vw, 100px) clamp(16px, 5vw, 48px);
 }
 .services .container{
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
-    width: 1440px;
+    max-width: 1440px;
+    width: 100%;
 }
 .title{
-    margin-bottom: 40px;
+    margin-bottom: clamp(20px, 5vw, 40px);
+}
+.title h2 {
+    font-size: clamp(18px, 4vw, 22px);
 }
 .title p{
     color: #FBEBD1;
     font-family: "Cormorant Garamond", serif;
-    font-size: 24px;
+    font-size: clamp(14px, 3vw, 24px);
     font-weight: 300;
     line-height: 1.65;
     letter-spacing: 0.01em;
     margin: 0;
 }
 .servicescontainer{
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: clamp(20px, 3vw, 30px);
     width: 100%;
 }
 .servicecard p{
     color: #FBEBD1;
     font-family: "Cormorant Garamond", serif;
-    font-size: 20px;
+    font-size: clamp(16px, 3vw, 20px);
     font-weight: 300;
     line-height: 1.65;
     letter-spacing: 0.01em;
@@ -331,13 +437,19 @@ nav a:hover::after{
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 40px 0;
+    margin: clamp(20px, 5vw, 40px) 0;
 }
 .services .line{
     display: block;
     width: 100px;
     height: 2px;
     background-color: #F05A28;
+}
+
+@media (max-width: 768px) {
+    .servicescontainer {
+        grid-template-columns: 1fr;
+    }
 }
 
 
@@ -347,25 +459,26 @@ nav a:hover::after{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 100px 0;
+    padding: clamp(50px, 10vw, 100px) clamp(16px, 5vw, 48px);
 }
 .contactus .container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 800px;
+    max-width: 800px;
+    width: 100%;
     text-align: center;
 }
 .contactus button{
-    margin-top: 40px;
+    margin-top: clamp(20px, 5vw, 40px);
 }
 .contactus h2{
     color: #FBEBD1;
     font-family: "Cormorant Garamond", serif;
     font-weight: 500;
     letter-spacing: 0.1rem;
-    font-size: 24px;
+    font-size: clamp(18px, 4vw, 24px);
 }
 .contactus #em{
     color: #F05A28;
@@ -381,12 +494,12 @@ nav a:hover::after{
     flex-direction: column;
     width: 100%;
     background-color: rgb(58, 34, 19);
-    padding: 32px 0;
+    padding: clamp(20px, 5vw, 32px) clamp(16px, 5vw, 48px);
 }
 .social h1{
-    margin-bottom: 20px;
+    margin-bottom: clamp(10px, 3vw, 20px);
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: clamp(14px, 3vw, 18px);
     letter-spacing: .18em;
     font-weight: 300;
 }
@@ -400,6 +513,7 @@ nav a:hover::after{
     color: #FBEBD1;
     position: relative;
     transition: color 0.3s ease;
+    font-size: clamp(10px, 2vw, 12px);
 }
 .link a::after{
     content: "";
@@ -418,7 +532,7 @@ nav a:hover::after{
     width: 100%;
 }
 .link img{
-    height: 16px;
+    height: clamp(12px, 2vw, 16px);
     width: auto;
 }
 /* Footer */
@@ -431,13 +545,15 @@ footer{
     width: 100%;
 }
 footer .container{
-    width: 1440px;
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 clamp(16px, 5vw, 48px);
 }
 .contact{
-    display: flex;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--contact-gap);
-    padding: 48px 0;
+    padding: clamp(32px, 8vw, 48px) 0;
     width: 100%;
 }
 .contactcard{
@@ -445,26 +561,26 @@ footer .container{
     flex-direction: column;
     justify-content:flex-start;
     font-size: 12px;
-    flex-grow: 1;
 }
 .contactcard img{
-    height: 28px;
-    width: 38px;
-    margin: 0 0 20px 0;
+    height: clamp(20px, 4vw, 28px);
+    width: auto;
+    margin: 0 0 clamp(12px, 3vw, 20px) 0;
 }
 .contactcard h2{
     font-style: normal;
-    font-size: 14px;
+    font-size: clamp(12px, 2.5vw, 14px);
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: clamp(12px, 3vw, 20px);
     text-transform: uppercase;
     letter-spacing: .18em;
     font-weight: 300;
 }
 .contactcard p{
-    font-size: 14px;
+    font-size: clamp(11px, 2vw, 14px);
     margin: 0;
     opacity: 0.65;
+    line-height: 1.5;
 }
 .contactcard a{
     font-style: normal;  
@@ -477,12 +593,22 @@ footer .container{
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding: clamp(20px, 5vw, 32px) clamp(16px, 5vw, 48px);
     border-top: 1px solid rgba(201, 104, 72, 0.18);
 }
 .copyright p{
-    font-size: 14px;
+    font-size: clamp(11px, 2vw, 14px);
     margin: 0;
     opacity: 0.65;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .contact {
+        grid-template-columns: 1fr;
+    }
+    
+    footer .container {
+        padding: 0 clamp(16px, 5vw, 24px);
+    }
 }
