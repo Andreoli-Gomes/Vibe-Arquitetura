@@ -209,12 +209,12 @@ nav#nav-menu a:hover::after {
         gap: 0;
         border-bottom: 1px solid rgba(240, 90, 40, 0.2);
         z-index: 999;
-        visibility: hidden;
+        display: none;
     }
     
     nav#nav-menu.active {
         right: 0;
-        visibility: visible;
+        display: flex;
     }
     
     ul {
