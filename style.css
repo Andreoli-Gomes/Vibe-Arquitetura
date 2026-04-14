@@ -24,7 +24,7 @@ button{
     align-items: center;
     padding: 12px 32px;
     background-color: transparent;
-    border: 1px solid #c96848;
+    border: 1px solid #F05A28;
     color: #FBEBD1;
     text-transform: uppercase;
     font-size: .65rem;
@@ -34,22 +34,41 @@ button{
     transition: all 0.3s ease;
 }
 button:hover{
-    background-color: #c96848;
+    background-color: #F05A28;
     color: #FBEBD1;
 }
 h1{
-    color: #c96848;
+    color: #F05A28;
     text-transform: uppercase;
     font-family: dm sans, google sans, sans-serif;
     letter-spacing: .18em;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 22px;
     margin: 0;
 }
 h2{
-    color: #FBEBD1;
+    color: #F05A28;
+    text-transform: uppercase;
+    font-family: dm sans, google sans, sans-serif;
+    letter-spacing: .18em;
+    font-weight: 400;
+    font-size: 22px;
+    margin: 0;
+}
+h3{
+    color: #F05A28;
+    text-transform: uppercase;
+    font-family: dm sans, google sans, sans-serif;
+    letter-spacing: .18em;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0;
 }
 p{
+    color: #FBEBD1;
+}
+a{
+    text-decoration: none;
     color: #FBEBD1;
 }
 
@@ -66,32 +85,44 @@ header{
     z-index: 1000;
     margin-bottom: -84px;
 }
-.container{
+header .container{
     width: 1440px;
     padding: 0 48px;
-}
-header div{
     display: flex;
-    width: 100%;
-    justify-content: space-between; 
-    padding: 0 48px;
-     
+    justify-content: space-between;
+    align-items: center;
 }
 #logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#logo img{
     height: 36px;
+    width: auto;
     padding: 0;
+}
+#logo a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 nav{
     display: flex;
     align-items: center;
     gap: 50px;
-    font-size: 14px; 
+    font-size: 12px; 
     letter-spacing: .18em;
+}
+ul{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
 }
 nav a{
     position: relative;
-    text-decoration: none;
-    color: #FBEBD1;
     transition: color 0.3s ease;
 }
 nav a::after{
@@ -101,11 +132,11 @@ nav a::after{
     bottom: -4px;
     width: 0;
     height: 1px;
-    background-color: #c96848;
+    background-color: #F05A28;
     transition: width 0.3s ease;
 }
 nav a:hover{
-    color: #c96848;
+    color: #F05A28;
 }
 nav a:hover::after{
     width: 100%;
@@ -143,29 +174,33 @@ nav a:hover::after{
     align-items: center;
     background-color: #54351e;
     padding: 150px 0;
+    flex-direction: column;
 }
 .about .container{
     width: 800px;
     text-align: center;
     padding: 0;
 }
-.about h1{
-    color: #c96848;
-    text-transform: uppercase;
-    font-family: dm sans, google sans, sans-serif;
-    letter-spacing: .18em;
-    font-weight: 400;
-    font-size: 24px;
-    margin: 0;
-}
 .about p{
     color: #FBEBD1;
     font-family: "Cormorant Garamond", serif;
-    font-size: 2rem;
+    font-size: 24px;
     font-weight: 300;
     line-height: 1.65;
     letter-spacing: 0.01em;
     margin-bottom: 0;
+}
+.divider{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+}
+.line{
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #F05A28;
 }
 
 /* Projects */
@@ -177,6 +212,11 @@ nav a:hover::after{
     justify-content: center;
     padding: 100px 0;
     width: 100%;
+}
+.projects .container{
+    display: flex;
+    flex-direction: column;
+    width: 1440px;
 }
 .projectcard{
     display: flex;
@@ -194,6 +234,20 @@ nav a:hover::after{
 .imgcontainer img{
     object-fit: cover;
     width: 100%; 
+}
+.label{
+    color: #F05A28;
+    text-transform: uppercase;
+    font-family: dm sans, google sans, sans-serif;
+    letter-spacing: .18em;
+    font-weight: 400;
+}
+.location{
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    font-size: 18px;
 }
 /* other projects */
 .otherprojects{
@@ -239,6 +293,52 @@ nav a:hover::after{
     background-color: rgb(74, 46, 26);
     padding: 100px 0;
 }
+.services .container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    width: 1440px;
+}
+.title{
+    margin-bottom: 40px;
+}
+.title p{
+    color: #FBEBD1;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    margin: 0;
+}
+.servicescontainer{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+}
+.servicecard p{
+    color: #FBEBD1;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    margin: 0;
+}
+.services .divider{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 40px 0;
+}
+.services .line{
+    display: block;
+    width: 100px;
+    height: 2px;
+    background-color: #F05A28;
+}
 
 
 /* Contact Us */
@@ -254,21 +354,21 @@ nav a:hover::after{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 720px;
+    width: 800px;
     text-align: center;
 }
 .contactus button{
     margin-top: 40px;
 }
-.contactus h1{
+.contactus h2{
     color: #FBEBD1;
     font-family: "Cormorant Garamond", serif;
     font-weight: 500;
     letter-spacing: 0.1rem;
-    font-size: 32px;
+    font-size: 24px;
 }
 .contactus #em{
-    color: #c96848;
+    color: #F05A28;
 }
 
 
@@ -308,11 +408,11 @@ nav a:hover::after{
     bottom: -4px;
     width: 0;
     height: 1px;
-    background-color: #c96848;
+    background-color: #F05A28;
     transition: width 0.3s ease;
 }
 .link a:hover{
-    color: #c96848;
+    color: #F05A28;
 }
 .link a:hover::after{
     width: 100%;
@@ -329,6 +429,9 @@ footer{
     background-color: rgb(58, 34, 19);
     border-top: 1px solid rgba(201, 104, 72, 0.18);
     width: 100%;
+}
+footer .container{
+    width: 1440px;
 }
 .contact{
     display: flex;
@@ -349,7 +452,7 @@ footer{
     width: 38px;
     margin: 0 0 20px 0;
 }
-.contactcard h1{
+.contactcard h2{
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 20px;
@@ -362,20 +465,12 @@ footer{
     margin: 0;
     opacity: 0.65;
 }
-#line2{
-    margin-top: 5px;
+.contactcard a{
+    font-style: normal;  
 }
-.socials{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    
-}
-.socials img{
-    height: 24px;
-    width: auto;
-}
+
+/* copyright */
+
 .copyright{
     display: flex;
     justify-content: center;
