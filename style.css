@@ -194,22 +194,27 @@ nav#nav-menu a:hover::after {
         display: flex;
     }
     
+    header.menu-open {
+        background-color: rgb(84, 53, 30) !important;
+        backdrop-filter: none;
+    }
+    
     nav#nav-menu {
         position: fixed;
-        top: 84px;
-        left: -100%;
+        top: -100%;
+        left: 0;
         flex-direction: column;
         background-color: rgb(84, 53, 30);
         width: 100%;
         text-align: center;
-        transition: left 0.3s ease;
+        transition: top 0.3s ease;
         gap: 0;
         border-bottom: 1px solid rgba(240, 90, 40, 0.2);
         z-index: 999;
     }
     
     nav#nav-menu.active {
-        left: 0;
+        top: 84px;
     }
     
     ul {
