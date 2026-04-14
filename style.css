@@ -193,7 +193,7 @@ nav#nav-menu a:hover::after {
     }
     
     header.menu-open {
-        background-color: rgb(84, 53, 30) !important;
+        background-color: rgb(58, 34, 19) !important;
         backdrop-filter: none;
     }
     
@@ -202,7 +202,7 @@ nav#nav-menu a:hover::after {
         top: 84px;
         right: -100%;
         flex-direction: column;
-        background-color: rgb(84, 53, 30);
+        background-color: rgb(58, 34, 19);
         width: 100%;
         text-align: center;
         transition: right 0.3s ease;
@@ -221,7 +221,7 @@ nav#nav-menu a:hover::after {
         flex-direction: column;
         width: 100%;
         gap: 0;
-        padding: 20px 0;
+        padding: 0;
     }
     
     ul li {
