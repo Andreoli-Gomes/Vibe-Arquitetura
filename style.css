@@ -90,8 +90,6 @@ header{
     top: 0;
     z-index: 1000;
     margin-bottom: -84px;
-    background-color: rgba(84, 53, 30, 0.95);
-    backdrop-filter: blur(5px);
 }
 header .container{
     max-width: 1440px;
@@ -201,20 +199,22 @@ nav#nav-menu a:hover::after {
     
     nav#nav-menu {
         position: fixed;
-        top: -100%;
-        left: 0;
+        top: 84px;
+        right: -100%;
         flex-direction: column;
         background-color: rgb(84, 53, 30);
         width: 100%;
         text-align: center;
-        transition: top 0.3s ease;
+        transition: right 0.3s ease;
         gap: 0;
         border-bottom: 1px solid rgba(240, 90, 40, 0.2);
         z-index: 999;
+        visibility: hidden;
     }
     
     nav#nav-menu.active {
-        top: 84px;
+        right: 0;
+        visibility: visible;
     }
     
     ul {
