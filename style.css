@@ -583,12 +583,11 @@ footer .container{
     margin-bottom: clamp(12px, 3vw, 20px);
     text-transform: uppercase;
     letter-spacing: .18em;
-    font-weight: 300;
+    font-weight: 600;
 }
 .contactcard p{
     font-size: clamp(11px, 2vw, 14px);
     margin: 0;
-    opacity: 0.65;
     line-height: 1.5;
 }
 .contactcard a{
