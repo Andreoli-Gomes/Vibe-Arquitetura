@@ -318,6 +318,7 @@ nav#nav-menu a:hover::after {
     flex-direction: column;
     max-width: 1440px;
     width: 100%;
+    padding: 0  48px;
 }
 .projectcard{
     display: flex;
@@ -390,6 +391,9 @@ nav#nav-menu a:hover::after {
     
     .imgcontainer {
         aspect-ratio: 4/3;
+    }
+    .projects .container {
+        padding: 0;
     }
 }
 
@@ -626,4 +630,23 @@ footer .container{
     justify-content: center;
     padding: clamp(100px, 10vw, 150px) clamp(16px, 5vw, 48px);
     width: 100%;
+}
+.projectspage .container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 48px;
+}
+@media (max-width: 768px) {
+    .otherprojects {
+        grid-template-columns: 1fr;
+    }
+    
+    .imgcontainer {
+        aspect-ratio: 4/3;
+    }
+    .projectspage .container {
+        padding: 0;
+    }
 }
