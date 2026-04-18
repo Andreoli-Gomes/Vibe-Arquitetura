@@ -522,7 +522,7 @@ nav#nav-menu a:hover::after {
     color: #FBEBD1;
     position: relative;
     transition: color 0.3s ease;
-    font-size: clamp(10px, 2vw, 12px);
+    font-size: clamp(16px, 2vw, 18px);
 }
 .link a::after{
     content: "";
