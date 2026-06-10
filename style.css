@@ -65,14 +65,14 @@ button:hover{
     font-weight: 400;
 }
 h1{
-    font-size: clamp(16px, 4vw, 22px);
+    font-size: clamp(1.375rem, 0.929rem + 1.19vw, 2rem);
     margin-bottom: 1rem;
 }
 h2{
-    font-size: clamp(16px, 4vw, 22px);
+    font-size: clamp(1.375rem, 0.929rem + 1.19vw, 2rem);
 }
 h3{
-    font-size: clamp(14px, 3vw, 18px);
+    font-size: clamp(1.125rem, 0.946rem + 0.476vw, 1.375rem);
 }
 p{
     font-family: "Cormorant Garamond", serif;
@@ -81,6 +81,7 @@ p{
     line-height: 1.65;
     letter-spacing: 0.01em;
     margin-bottom: 0;
+    font-size: clamp(1.25rem, 0.982rem + 0.714vw, 1.625rem);
 }
 a{
     text-decoration: none;
@@ -282,7 +283,6 @@ nav#nav-menu a:hover::after {
     text-align: center;
 }
 .about p{
-    font-size: clamp(16px, 4vw, 24px);
     text-align: left; 
 }
 .divider{
@@ -302,12 +302,20 @@ nav#nav-menu a:hover::after {
 
 /* main */
 .projects .container{
+    gap: clamp(2rem, 1.196rem + 2.143vw, 3.125rem);
+}
+.projects-container{
+    display: grid;
     gap: 2rem;
+    padding: 0 20px;
 }
 .projectcard{
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+.projectcard h3{
+    margin-bottom: 1rem;
 }
 .imgcontainer{
     display: flex;
@@ -325,34 +333,25 @@ nav#nav-menu a:hover::after {
 .location{
     font-size: clamp(14px, 3vw, 18px);
 }
-
-/* other projects projects.html */
-.otherprojects{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: clamp(12px, 3vw, 24px);
-    width: 100%;
-    margin-bottom: clamp(40px, 8vw, 80px);
-}
-.otherprojects .projectcard{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
 .more{
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%;
 }
+
 
 /* Tablet: 2 columns adjusted */
 @media (max-width: 1024px) {
     
 }
 
-/* Mobile: 1 column */
-@media (max-width: 768px) {
+
+@media (min-width: 768px) {
+    .projects-container{
+        grid-template-columns: 1fr 1fr;
+    }
+    .projectcard-span{
+        grid-column: span 2;
+    }
 }
 
 /* Services */
@@ -363,9 +362,6 @@ nav#nav-menu a:hover::after {
 .services .container{
     display: flex;
     flex-direction: column;
-}
-.title h2 {
-    font-size: clamp(18px, 4vw, 22px);
 }
 .title p{
     color: #FBEBD1;
@@ -383,13 +379,9 @@ nav#nav-menu a:hover::after {
     width: 100%;
 }
 .servicecard p{
-    color: #FBEBD1;
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(16px, 3vw, 20px);
     font-weight: 300;
     line-height: 1.65;
     letter-spacing: 0.01em;
-    margin: 0;
 }
 .services .divider{
     display: flex;
@@ -430,7 +422,6 @@ nav#nav-menu a:hover::after {
     font-family: "Cormorant Garamond", serif;
     font-weight: 500;
     letter-spacing: 0.1rem;
-    font-size: clamp(18px, 4vw, 24px);
 }
 .contactus #em{
     color: #F05A28;
