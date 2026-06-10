@@ -4,6 +4,9 @@
 } */
 
 :root {
+    --background-color-darkbrown: rgb(58, 34, 19);
+    --background-color-lightbrown: rgb(84, 53, 30);
+    --background-color-mediumbrown: rgb(74, 46, 26);
     --contact-gap: clamp(10px, 2vw, 32px);
 }
 
@@ -439,6 +442,12 @@ nav#nav-menu a:hover::after {
 .social{
     background-color: rgb(58, 34, 19);
 }
+.social .container{
+    gap: 1rem;
+}
+.title{
+    text-align: center;
+}
 .link a{
     display: flex;
     justify-content: center;
@@ -536,6 +545,10 @@ footer .container{
     margin: 0;
     opacity: 0.65;
     text-align: center;
+}
+.nuvvo{
+    height: 5px;
+    width: auto;
 }
 
 @media (max-width: 768px) {
