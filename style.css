@@ -7,7 +7,7 @@
     --contact-gap: clamp(10px, 2vw, 32px);
 }
 
-* {
+*, *::after, *::before{
     box-sizing: border-box;
 }
 
@@ -15,6 +15,7 @@ html{
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
 }
 body{
     margin: 0;
@@ -23,6 +24,12 @@ body{
     font-family: DM Sans, Google Sans, sans-serif;
     background-color: rgb(84, 53, 30);
     overflow-x: hidden;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 button{
     display: flex;
@@ -43,39 +50,45 @@ button:hover{
     background-color: #F05A28;
     color: #FBEBD1;
 }
-h1{
+:where(h1, h2, h3, h4, h5, h6, p){
+    margin: 0;
+    padding: 0;
+}
+:where(h1, h2, h3, h4, h5, h6){
     color: #F05A28;
     text-transform: uppercase;
     font-family: dm sans, google sans, sans-serif;
     letter-spacing: .18em;
     font-weight: 400;
+}
+h1{
     font-size: clamp(16px, 4vw, 22px);
-    margin: 0;
+    margin-bottom: 1rem;
 }
 h2{
-    color: #F05A28;
-    text-transform: uppercase;
-    font-family: dm sans, google sans, sans-serif;
-    letter-spacing: .18em;
-    font-weight: 400;
     font-size: clamp(16px, 4vw, 22px);
-    margin: 0;
 }
 h3{
-    color: #F05A28;
-    text-transform: uppercase;
-    font-family: dm sans, google sans, sans-serif;
-    letter-spacing: .18em;
-    font-weight: 400;
     font-size: clamp(14px, 3vw, 18px);
-    margin: 0;
 }
 p{
+    font-family: "Cormorant Garamond", serif;
     color: #FBEBD1;
+    font-weight: 300;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    margin-bottom: 0;
 }
 a{
     text-decoration: none;
     color: #FBEBD1;
+}
+.container{
+    display: grid;
+    max-width: 1440px;
+    width: 100%;
+    padding: clamp(3.125rem, 1.795rem + 4.95vw, 6.25rem) 0;
+    margin: 0 20px;
 }
 
 /* Header */
@@ -92,9 +105,7 @@ header{
     margin-bottom: -84px;
 }
 header .container{
-    max-width: 1440px;
-    width: 100%;
-    padding: 0 clamp(16px, 5vw, 48px);
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -243,10 +254,6 @@ nav#nav-menu a:hover::after {
 /* Hero */
 
 .hero{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     height: 100vh;
     min-height: 400px;
     background-image: url(images/hero_interior-nVXbpgtLoFuGutAQoKcGFK.webp);
@@ -257,8 +264,6 @@ nav#nav-menu a:hover::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    padding: 0 clamp(16px, 5vw, 48px);
 }
 .hero img{
     height: clamp(80px, 15vw, 166px);
@@ -268,27 +273,14 @@ nav#nav-menu a:hover::after {
 /* About */
 
 .about{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #54351e;
-    padding: clamp(130px, 10vw, 150px) clamp(16px, 5vw, 48px);
-    flex-direction: column;
 }
 .about .container{
-    max-width: 800px;
-    width: 100%;
     text-align: center;
-    padding: 0;
 }
 .about p{
-    color: #FBEBD1;
-    font-family: "Cormorant Garamond", serif;
     font-size: clamp(16px, 4vw, 24px);
-    font-weight: 300;
-    line-height: 1.65;
-    letter-spacing: 0.01em;
-    margin-bottom: 0;
+    text-align: left; 
 }
 .divider{
     display: flex;
@@ -306,19 +298,8 @@ nav#nav-menu a:hover::after {
 /* Projects */
 
 /* main */
-.projects{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(50px, 10vw, 100px) clamp(16px, 5vw, 48px);
-    width: 100%;
-}
 .projects .container{
-    display: flex;
-    flex-direction: column;
-    max-width: 1440px;
-    width: 100%;
-    padding: 0  48px;
+    gap: 2rem;
 }
 .projectcard{
     display: flex;
@@ -338,25 +319,11 @@ nav#nav-menu a:hover::after {
     width: 100%;
     height: 100%;
 }
-.label{
-    color: #F05A28;
-    text-transform: uppercase;
-    font-family: dm sans, google sans, sans-serif;
-    letter-spacing: .18em;
-    font-weight: 400;
-    font-size: clamp(12px, 2.5vw, 14px);
-    margin-top: clamp(10px, 3vw, 20px);
-}
 .location{
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 400;
-    line-height: 1.65;
-    letter-spacing: 0.01em;
     font-size: clamp(14px, 3vw, 18px);
-    margin-bottom: clamp(20px, 5vw, 40px);
 }
 
-/* other projects */
+/* other projects projects.html */
 .otherprojects{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -378,42 +345,21 @@ nav#nav-menu a:hover::after {
 
 /* Tablet: 2 columns adjusted */
 @media (max-width: 1024px) {
-    .otherprojects {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    
 }
 
 /* Mobile: 1 column */
 @media (max-width: 768px) {
-    .otherprojects {
-        grid-template-columns: 1fr;
-    }
-    
-    .imgcontainer {
-        aspect-ratio: 4/3;
-    }
-    .projects .container {
-        padding: 0;
-    }
 }
 
 /* Services */
 
 .services{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: rgb(74, 46, 26);
-    padding: clamp(50px, 10vw, 100px) clamp(16px, 5vw, 48px);
 }
 .services .container{
     display: flex;
     flex-direction: column;
-    max-width: 1440px;
-    width: 100%;
-}
-.title{
-    margin-bottom: clamp(20px, 5vw, 40px);
 }
 .title h2 {
     font-size: clamp(18px, 4vw, 22px);
@@ -463,13 +409,7 @@ nav#nav-menu a:hover::after {
 
 
 /* Contact Us */
-.contactus{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: clamp(50px, 10vw, 100px) clamp(16px, 5vw, 48px);
-}
+
 .contactus .container{
     display: flex;
     flex-direction: column;
@@ -497,20 +437,7 @@ nav#nav-menu a:hover::after {
 /* Social */
 
 .social{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
     background-color: rgb(58, 34, 19);
-    padding: clamp(20px, 5vw, 32px) clamp(16px, 5vw, 48px);
-}
-.social h1{
-    margin-bottom: clamp(10px, 3vw, 20px);
-    text-transform: uppercase;
-    font-size: clamp(14px, 3vw, 18px);
-    letter-spacing: .18em;
-    font-weight: 300;
 }
 .link a{
     display: flex;
