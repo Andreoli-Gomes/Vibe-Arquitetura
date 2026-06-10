@@ -360,28 +360,14 @@ nav#nav-menu a:hover::after {
     background-color: rgb(74, 46, 26);
 }
 .services .container{
-    display: flex;
-    flex-direction: column;
-}
-.title p{
-    color: #FBEBD1;
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(14px, 3vw, 24px);
-    font-weight: 300;
-    line-height: 1.65;
-    letter-spacing: 0.01em;
-    margin: 0;
+    gap: 3.125rem;
 }
 .servicescontainer{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: clamp(20px, 3vw, 30px);
-    width: 100%;
+    gap: 2rem;
 }
-.servicecard p{
-    font-weight: 300;
-    line-height: 1.65;
-    letter-spacing: 0.01em;
+.servicecard h3{
+    margin-bottom: 1rem;
 }
 .services .divider{
     display: flex;
@@ -396,9 +382,13 @@ nav#nav-menu a:hover::after {
     background-color: #F05A28;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .servicescontainer {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.125rem 2rem;
+    }
+    .servicecar-span{
+        grid-column: span 2;
     }
 }
 
@@ -419,12 +409,13 @@ nav#nav-menu a:hover::after {
 }
 .contactus h2{
     color: #FBEBD1;
-    font-family: "Cormorant Garamond", serif;
     font-weight: 500;
     letter-spacing: 0.1rem;
 }
 .contactus #em{
     color: #F05A28;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 800;
 }
 
 
@@ -481,16 +472,13 @@ footer{
     width: 100%;
 }
 footer .container{
-    max-width: 1440px;
-    width: 100%;
-    padding: 0 clamp(16px, 5vw, 48px);
+    gap: 3.125rem;
+    padding: 3.125rem 0 2rem 0;
 }
 .contact{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--contact-gap);
-    padding: clamp(32px, 8vw, 48px) 0;
-    width: 100%;
+    gap: 2rem;
+    /* width: 100%; */
 }
 .contactcard{
     display: flex;
@@ -503,9 +491,11 @@ footer .container{
     width: clamp(30px, 4vw, 38px);
     margin: 0 0 clamp(12px, 3vw, 20px) 0;
 }
+#font-weight{
+    font-weight: 700;
+}
 .contactcard h2{
-    font-style: normal;
-    font-size: clamp(12px, 2.5vw, 14px);
+    font-size: clamp(1rem, 0.821rem + 0.476vw, 1.25rem);
     margin-top: 0;
     margin-bottom: clamp(12px, 3vw, 20px);
     text-transform: uppercase;
@@ -513,7 +503,8 @@ footer .container{
     font-weight: 600;
 }
 .contactcard p{
-    font-size: clamp(11px, 2vw, 14px);
+    font-family: dm sans, google sans, sans-serif;
+    font-size: clamp(0.875rem, 0.696rem + 0.476vw, 1.125rem);
     margin: 0;
     line-height: 1.5;
 }
@@ -528,27 +519,24 @@ footer .container{
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: clamp(20px, 5vw, 32px) clamp(16px, 5vw, 48px);
+    padding: 2rem 0 0 0;
     border-top: 1px solid rgba(201, 104, 72, 0.18);
+    gap: 5px;
 }
 .copyright p{
-    font-size: clamp(11px, 2vw, 14px);
+    font-size: clamp(0.875rem, 0.696rem + 0.476vw, 1.125rem);
     margin: 0;
     opacity: 0.65;
     text-align: center;
 }
 .nuvvo{
-    height: 5px;
+    height: 8px;
     width: auto;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .contact {
-        grid-template-columns: 1fr;
-    }
-    
-    footer .container {
-        padding: 0 clamp(16px, 5vw, 24px);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
