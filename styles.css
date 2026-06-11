@@ -440,7 +440,7 @@ nav#nav-menu a:hover::after {
     color: #FBEBD1;
     position: relative;
     transition: color 0.3s ease;
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: clamp(16px, 2vw, 20px);
 }
 .link a::after{
     content: "";
@@ -455,11 +455,8 @@ nav#nav-menu a:hover::after {
 .link a:hover{
     color: #F05A28;
 }
-.link a:hover::after{
-    width: 100%;
-}
-.link img{
-    height: clamp(12px, 2vw, 16px);
+.link svg{
+    height: clamp(16px, 2vw, 18px);
     width: auto;
 }
 /* Footer */
@@ -524,7 +521,7 @@ footer .container{
     gap: 5px;
 }
 .copyright p{
-    font-size: clamp(0.875rem, 0.696rem + 0.476vw, 1.125rem);
+    font-size: clamp(1rem, 0.911rem + 0.238vw, 1.125rem);
     margin: 0;
     opacity: 0.65;
     text-align: center;
