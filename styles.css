@@ -24,7 +24,8 @@ body{
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: DM Sans, Google Sans, sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
     background-color: rgb(84, 53, 30);
     overflow-x: hidden;
 }
@@ -60,22 +61,19 @@ button:hover{
 :where(h1, h2, h3, h4, h5, h6){
     color: #F05A28;
     text-transform: uppercase;
-    font-family: dm sans, google sans, sans-serif;
     letter-spacing: .18em;
+    /* font-weight: 400; */
+}
+:where(h1, h2){
+    font-size: clamp(1.375rem, 0.929rem + 1.19vw, 2rem);
     font-weight: 400;
-}
-h1{
-    font-size: clamp(1.375rem, 0.929rem + 1.19vw, 2rem);
     margin-bottom: 1rem;
-}
-h2{
-    font-size: clamp(1.375rem, 0.929rem + 1.19vw, 2rem);
 }
 h3{
     font-size: clamp(1.125rem, 0.946rem + 0.476vw, 1.375rem);
+    font-weight: 400;
 }
 p{
-    font-family: "Cormorant Garamond", serif;
     color: #FBEBD1;
     font-weight: 300;
     line-height: 1.65;
@@ -324,6 +322,12 @@ nav#nav-menu a:hover::after {
     background-color: #F05A28;
 }
 
+/* Beatriz Ogeda */
+
+.architect{
+    background-color: var(--background-color-mediumbrown);
+}
+
 /* Projects */
 
 /* main */
@@ -333,7 +337,6 @@ nav#nav-menu a:hover::after {
 .projects-container{
     display: grid;
     gap: 2rem;
-    padding: 0 20px;
 }
 .projectcard{
     display: flex;
@@ -355,9 +358,6 @@ nav#nav-menu a:hover::after {
     object-fit: cover;
     width: 100%;
     height: 100%;
-}
-.location{
-    font-size: clamp(14px, 3vw, 18px);
 }
 .more{
     display: flex;
@@ -523,7 +523,7 @@ footer .container{
     margin-bottom: clamp(12px, 3vw, 20px);
     text-transform: uppercase;
     letter-spacing: .18em;
-    font-weight: 600;
+    /* font-weight: 600; */
 }
 .contactcard p{
     font-family: dm sans, google sans, sans-serif;
