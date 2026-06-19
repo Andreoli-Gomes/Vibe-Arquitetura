@@ -42,7 +42,7 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: clamp(8px, 2vw, 12px) clamp(20px, 4vw, 32px);
+    padding: 12px 32px;
     background-color: transparent;
     border: 1px solid var(--orange);
     color: var(--background-color-lightbrown);
@@ -52,6 +52,7 @@ button{
     font-weight: 400;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-top: clamp(1.063rem, -0.411rem + 3.929vw, 3.125rem);
 }
 button:hover{
     background-color: var(--orange);
@@ -70,7 +71,7 @@ button:hover{
 :where(h1, h2){
     font-size: clamp(1.375rem, 1.018rem + 0.952vw, 1.875rem);
     font-weight: 400;
-    margin-bottom: 1rem;
+    margin-bottom: 3.125rem;
 }
 h3{
     font-size: clamp(1.125rem, 0.946rem + 0.476vw, 1.375rem);
@@ -322,7 +323,48 @@ nav#nav-menu a:hover::after {
 /* Beatriz Ogeda */
 
 .architect{
-    background-color: var(--background-color2);
+    
+}
+.architect .container{
+    gap: 3.125rem;
+    border-top: 1px solid var(--orange);
+    border-bottom: 1px solid var(--orange);
+}
+.bea-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imageframe{
+    width: 300px;
+    height: 300px;
+    /* border: 2px solid var(--orange); */
+    overflow: hidden;
+    border-radius: 99999px;
+}
+.imageframe img{
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
+.about-bea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about-bea h2{
+    margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+    .architect .container{
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 0;  
+    }
+    .imageframe{
+        width: 500px;
+        height: 500px;
+    }
 }
 
 /* Projects */
@@ -387,9 +429,6 @@ nav#nav-menu a:hover::after {
 .services{
     background-color: var(--background-color2);
 }
-.services .container{
-    gap: 3.125rem;
-}
 .servicescontainer{
     display: grid;
     gap: 2rem;
@@ -433,7 +472,7 @@ nav#nav-menu a:hover::after {
     text-align: center;
 }
 .contactus button{
-    margin-top: clamp(20px, 5vw, 40px);
+    margin-top: 0;
 }
 .contactus #em{
     color: var(--background-color-lightbrown);
@@ -446,8 +485,10 @@ nav#nav-menu a:hover::after {
     background-color: var(--background-color2);
 }
 .social .container{
-    gap: 1rem;
     padding: 50px 0;
+}
+.social h2{
+    margin-bottom: 1rem;
 }
 .title{
     text-align: center;
