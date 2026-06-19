@@ -52,7 +52,7 @@ button{
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: clamp(1.063rem, -0.411rem + 3.929vw, 3.125rem);
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-family: "Poppins", sans-serif;
 }
 button:hover{
