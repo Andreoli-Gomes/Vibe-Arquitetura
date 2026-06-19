@@ -1,8 +1,3 @@
-/* *{
-    box-sizing: border-box;
-    outline: 3px solid limegreen !important;
-} */
-
 :root {
     --background-color-darkbrown: #3a2213;
     --background-color-lightbrown: #54351e;
@@ -12,11 +7,9 @@
     --background-color2: #eddfc8;
     --orange: #c96848;
 }
-
 *, *::after, *::before{
     box-sizing: border-box;
 }
-
 html{
     margin: 0;
     padding: 0;
@@ -195,6 +188,7 @@ nav#nav-menu a:hover::after {
 }
 
 /* Mobile menu toggle */
+
 #burger {
     display: none;
     flex-direction: column;
@@ -207,7 +201,6 @@ nav#nav-menu a:hover::after {
     padding: 8px;
     z-index: 1001;
 }
-
 #burger span {
     display: block;
     width: 25px;
@@ -216,29 +209,23 @@ nav#nav-menu a:hover::after {
     transition: all 0.3s ease;
     transform-origin: center;
 }
-
 #burger.active span:nth-child(1) {
     transform: translateY(10.5px) rotate(45deg);
 }
-
 #burger.active span:nth-child(2) {
     opacity: 0;
 }
-
 #burger.active span:nth-child(3) {
     transform: translateY(-10.5px) rotate(-45deg);
 }
-
 @media (max-width: 768px) {
     #burger {
         display: flex;
     }
-    
     header.menu-open {
         background-color: rgb(58, 34, 19) !important;
         backdrop-filter: none;
-    }
-    
+    }   
     nav#nav-menu {
         position: fixed;
         top: 80px;
@@ -253,28 +240,23 @@ nav#nav-menu a:hover::after {
         z-index: 999;
         display: none;
     }
-    
     nav#nav-menu.active {
         right: 0;
         display: flex;
     }
-    
     ul {
         flex-direction: column;
         width: 100%;
         gap: 0;
         padding: 0;
     }
-    
     ul li {
         width: 100%;
         border-bottom: 1px solid rgba(240, 90, 40, 0.1);
     }
-    
     ul li:last-child {
         border-bottom: none;
     }
-    
     ul li a {
         display: block;
         padding: 16px 0;
@@ -286,7 +268,6 @@ nav#nav-menu a:hover::after {
 
 .hero{
     height: 100vh;
-    /* min-height: 400px; */
     background-image: url(images/projects/APTO-MA.jpg);
     background-size: cover;
     background-position: center;
@@ -303,12 +284,8 @@ nav#nav-menu a:hover::after {
 
 /* About */
 
-.about{
-    
-}
 .about .container{
     text-align: center;
-    
 }
 .about h1{
     margin: 0;
@@ -325,11 +302,9 @@ nav#nav-menu a:hover::after {
         width: 60%;
     }
 }
+
 /* Beatriz Ogeda */
 
-.architect{
-    
-}
 .architect .container{
     gap: 3.125rem;
     border-top: 1px solid var(--orange);
@@ -343,7 +318,6 @@ nav#nav-menu a:hover::after {
 .imageframe{
     width: 300px;
     height: 300px;
-    /* border: 2px solid var(--orange); */
     overflow: hidden;
     border-radius: 30px;
 }
@@ -378,44 +352,68 @@ nav#nav-menu a:hover::after {
 .projects .container{
     gap: clamp(2rem, 1.196rem + 2.143vw, 3.125rem);
     width: 100%;
-    /* margin: 0; */
-    /* max-width: none; */
 }
 .projects-container{
     display: grid;
-    /* gap: 2rem; */
 }
-/* .projectcard:nth-child(n+5){
-    display: none;
-} */
 .imgcontainer{
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     position: relative;
     width: 100%;
     overflow: hidden;
     line-height: 0;
     border: 0;
+    cursor: pointer;
+}
+.imgcontainer .project-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    padding: 0 1rem;
+}
+.imgcontainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+.imgcontainer:hover::before {
+    opacity: 1;
+}
+.imgcontainer:hover .project-name {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.imgcontainer:hover img {
+    transform: scale(1.05);
+    transition: transform 0.4s ease;
 }
 .imgcontainer img{
     object-fit: cover;
     width: 100%;
     height: 100%;
     display: block;
+    transition: transform 0.4s ease; 
 }
 .more{
     display: flex;
     justify-content: center;
 }
-
-
-/* Tablet: 2 columns adjusted */
-@media (max-width: 1024px) {
-    
-}
-
-
 @media (min-width: 768px) {
     .projects-container{
         grid-template-columns: repeat(4, 1fr);
@@ -443,7 +441,6 @@ nav#nav-menu a:hover::after {
     display: flex;
     flex-direction: column;
     background-color: var(--background-color);
-    /* border: 1px solid var(--orange); */
     border-radius: 30px;
     padding: 50px;
     box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.2);
@@ -471,13 +468,11 @@ nav#nav-menu a:hover::after {
 @media (min-width: 768px) {
     .servicescontainer {
         grid-template-columns: repeat(3, 28%);
-        /* gap: 3.125rem; */
     }
     .servicecar-span{
         grid-column: span 2;
     }
 }
-
 
 /* Contact Us */
 
@@ -499,7 +494,6 @@ nav#nav-menu a:hover::after {
 .contactus #em{
     color: var(--background-color-lightbrown);
 }
-
 
 /* Social */
 
@@ -561,7 +555,6 @@ footer .container{
 .contact{
     display: grid;
     gap: 2rem;
-    /* width: 100%; */
 }
 .contactcard{
     display: flex;
@@ -572,9 +565,6 @@ footer .container{
     height: clamp(20px, 4vw, 28px);
     width: clamp(30px, 4vw, 38px);
     margin: 0 0 clamp(12px, 3vw, 20px) 0;
-}
-#font-weight{
-    /* font-weight: 600; */
 }
 .contactcard h2{
     font-size: clamp(1rem, 0.911rem + 0.238vw, 1.125rem);
