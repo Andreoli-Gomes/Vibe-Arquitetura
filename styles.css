@@ -70,7 +70,7 @@ button:hover{
 :where(h1, h2){
     font-size: clamp(1.375rem, 1.018rem + 0.952vw, 1.875rem);
     font-weight: 400;
-    margin-bottom: 3.125rem;
+    margin-bottom: 1rem;
 }
 h3{
     font-size: clamp(1.125rem, 0.946rem + 0.476vw, 1.375rem);
@@ -133,7 +133,7 @@ header{
     position: sticky;
     top: 0;
     z-index: 1000;
-    margin-bottom: -84px;
+    margin-bottom: -80px;
 }
 header .container{
     padding: 0;
@@ -241,7 +241,7 @@ nav#nav-menu a:hover::after {
     
     nav#nav-menu {
         position: fixed;
-        top: 84px;
+        top: 80px;
         right: -100%;
         flex-direction: column;
         background-color: rgb(58, 34, 19);
@@ -286,7 +286,7 @@ nav#nav-menu a:hover::after {
 
 .hero{
     height: 100vh;
-    min-height: 400px;
+    /* min-height: 400px; */
     background-image: url(images/projects/APTO-MA.jpg);
     background-size: cover;
     background-position: center;
@@ -308,17 +308,23 @@ nav#nav-menu a:hover::after {
 }
 .about .container{
     text-align: center;
+    
+}
+.about h1{
+    margin: 0;
+}
+.about h2{
+    font-size: 1rem;
+    color: var(--background-color-lightbrown);
 }
 .about p{
     text-align: left; 
 }
-.divider{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: clamp(20px, 5vw, 40px);
+@media (min-width: 768px) {
+    .about .container{
+        width: 60%;
+    }
 }
-
 /* Beatriz Ogeda */
 
 .architect{
@@ -484,8 +490,11 @@ nav#nav-menu a:hover::after {
     width: 100%;
     text-align: center;
 }
+.contactus h2{
+    margin: 0;
+}
 .contactus button{
-    margin-top: 0;
+    margin-top: 3.125rem;
 }
 .contactus #em{
     color: var(--background-color-lightbrown);
