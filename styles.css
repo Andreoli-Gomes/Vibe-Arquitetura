@@ -47,8 +47,6 @@ button{
     border: 1px solid var(--orange);
     color: var(--background-color-lightbrown);
     text-transform: uppercase;
-    /* letter-spacing: .18em; */
-    /* font-weight: 400; */
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: clamp(1.063rem, -0.411rem + 3.929vw, 3.125rem);
@@ -614,6 +612,7 @@ address{
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     line-height: normal;
+    color: #fff;
 }
 .highlight{
     color: #C0f928;
