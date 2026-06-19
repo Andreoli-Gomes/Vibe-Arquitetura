@@ -47,7 +47,6 @@ button{
     border: 1px solid var(--orange);
     color: var(--background-color-lightbrown);
     text-transform: uppercase;
-    font-size: clamp(10px, 2vw, 13px);
     letter-spacing: .18em;
     font-weight: 400;
     cursor: pointer;
