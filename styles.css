@@ -47,11 +47,13 @@ button{
     border: 1px solid var(--orange);
     color: var(--background-color-lightbrown);
     text-transform: uppercase;
-    letter-spacing: .18em;
-    font-weight: 400;
+    /* letter-spacing: .18em; */
+    /* font-weight: 400; */
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: clamp(1.063rem, -0.411rem + 3.929vw, 3.125rem);
+    font-size: 1.125rem;
+    font-family: "Poppins", sans-serif;
 }
 button:hover{
     background-color: var(--orange);
@@ -64,7 +66,7 @@ button:hover{
 :where(h1, h2, h3, h4, h5, h6){
     color: var(--orange);
     text-transform: uppercase;
-    letter-spacing: .18em;
+    letter-spacing: .1em;
     /* font-weight: 400; */
 }
 :where(h1, h2){
@@ -129,7 +131,7 @@ header{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 84px;
+    height: 80px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -162,7 +164,7 @@ nav#nav-menu {
     align-items: center;
     gap: clamp(20px, 3vw, 50px);
     font-size: clamp(0.875rem, 0.786rem + 0.238vw, 1rem);
-    letter-spacing: .18em;
+    letter-spacing: .1em;
 }
 ul {
     display: flex;
@@ -339,7 +341,7 @@ nav#nav-menu a:hover::after {
     height: 300px;
     /* border: 2px solid var(--orange); */
     overflow: hidden;
-    border-radius: 99999px;
+    border-radius: 30px;
 }
 .imageframe img{
     object-fit: cover;
@@ -431,6 +433,20 @@ nav#nav-menu a:hover::after {
 .servicescontainer{
     display: grid;
     gap: 2rem;
+    justify-content: center;
+}
+.servicecard{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    /* border: 1px solid var(--orange); */
+    border-radius: 30px;
+    padding: 50px;
+    box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.2);
+}
+.servicecard div{
+    height: 90px;
+    width: 100%;
 }
 .servicecard h3{
     margin-bottom: 1rem;
@@ -450,8 +466,8 @@ nav#nav-menu a:hover::after {
 
 @media (min-width: 768px) {
     .servicescontainer {
-        grid-template-columns: 1fr 1fr;
-        gap: 3.125rem 2rem;
+        grid-template-columns: repeat(3, 28%);
+        /* gap: 3.125rem; */
     }
     .servicecar-span{
         grid-column: span 2;
@@ -558,8 +574,6 @@ footer .container{
     margin-top: 0;
     margin-bottom: clamp(12px, 3vw, 20px);
     text-transform: uppercase;
-    letter-spacing: .18em;
-    /* font-weight: 600; */
 }
 .contactcard p{
     color: var(--background-color);
@@ -594,12 +608,16 @@ address{
     margin: 0;
     opacity: 0.65;
     text-align: center;
+    line-height: normal;
 }
-.nuvvo{
-    height: 8px;
-    width: auto;
+.copyright a{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: normal;
 }
-
+.highlight{
+    color: #C0f928;
+}
 @media (min-width: 768px) {
     .contact {
         grid-template-columns: repeat(3, 1fr);
