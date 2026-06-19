@@ -481,6 +481,7 @@ nav#nav-menu a:hover::after {
     height: clamp(16px, 2vw, 18px);
     width: auto;
 }
+
 /* Footer */
 
 footer{
@@ -503,7 +504,6 @@ footer .container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 12px;
 }
 .contactcard img{
     height: clamp(20px, 4vw, 28px);
@@ -529,6 +529,12 @@ footer .container{
 }
 .contactcard a{
     font-style: normal;  
+}
+.contactcard a:hover{
+    color: var(--orange);
+}
+address{
+    font-style: normal;
 }
 
 /* copyright */
